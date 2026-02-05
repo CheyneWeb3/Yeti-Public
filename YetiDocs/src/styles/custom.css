@@ -1,0 +1,15 @@
+/* Make the central content column wider */
+:root {
+  --sl-content-width: 1100px; /* default is smaller; bump this */
+}
+
+/* Optional: make the TOC column a bit narrower (right side) */
+:root {
+  --sl-sidebar-width: 280px;       /* left nav */
+  --sl-toc-width: 240px;           /* right "On this page" */
+}
+
+/* Optional: reduce extra padding so it feels wider */
+.sl-markdown-content {
+  max-width: var(--sl-content-width);
+}
