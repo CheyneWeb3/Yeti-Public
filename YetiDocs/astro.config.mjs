@@ -16,6 +16,8 @@ export default defineConfig({
         { label: 'SaaS', autogenerate: { directory: 'saas' } },
         { label: 'Modules', autogenerate: { directory: 'modules' } },
         { label: 'Reference', autogenerate: { directory: 'reference' } },
+        { label: 'Gaming', autogenerate: { directory: 'zgames' } },
+
       ],
     }),
   ],
