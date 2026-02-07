@@ -1,7 +1,12 @@
-# YetiCashier — Installation & Setup (Latest Zip)
+---
+title: Installation & Setup
+description: Full installation details for the system.
+sidebar:
+  order: 3
+---
 
-> Last updated: 2026-02-07  
-> Repo: **yeticashier-system-remade.zip** (Core API + Relayer + Indexer + Telegram bot module)
+
+# YetiCashier — Installation & Setup (Latest Zip)
 
 This guide installs the full MVP stack locally (or on a single VPS) exactly matching the current repo layout:
 
@@ -319,4 +324,3 @@ Shared keys don’t match between Core and relayer/indexer env files.
 - Core API: `8088`
 - Mongo: `27017`
 - Others: no public ports required (they call Core)
-
