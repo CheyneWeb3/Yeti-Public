@@ -191,24 +191,24 @@ Below is a clean set of example prices denominated in **USDC credits** (you can 
 
 **Starter**
 
-* Monthly: **$49**
-* 3-monthly: **$129** (≈12% off)
-* Yearly: **$449** (≈24% off)
-* Lifetime: **$1,499** (≈2.5 years)
+* Monthly: **TBA**
+* 3-monthly: **$TBA** (≈12% off)
+* Yearly: **$TBA** (≈24% off)
+* Lifetime: **$TBA** (≈2.5 years)
 
 **Pro**
 
-* Monthly: **$149**
-* 3-monthly: **$399** (≈11% off)
-* Yearly: **$1,299** (≈27% off)
-* Lifetime: **$4,499** (≈2.5–3 years)
+* Monthly: **$TBA**
+* 3-monthly: **$TBA** (≈11% off)
+* Yearly: **$TBA** (≈27% off)
+* Lifetime: **$TBA** (≈2.5–3 years)
 
 **Whale**
 
-* Monthly: **$399**
-* 3-monthly: **$1,099** (≈8% off)
-* Yearly: **$3,499** (≈27% off)
-* Lifetime: **$11,999** (≈2.5–3 years)
+* Monthly: **$TBA**
+* 3-monthly: **$TBA** (≈8% off)
+* Yearly: **$TBA** (≈27% off)
+* Lifetime: **TBA** (≈2.5–3 years)
 
 > These are *example* numbers designed to be easy to communicate. You can tune them to match real ARPU from game/module activity.
 
@@ -254,7 +254,7 @@ Every module call should be able to ask:
 
 ---
 
-# 8) Quick examples (how fees look in real life)
+# 8) Quick estimate examples   (how fees look in real life)
 
 ### Example A: Pro group pays monthly
 
