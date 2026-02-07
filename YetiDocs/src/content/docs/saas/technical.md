@@ -277,9 +277,3 @@ Every module call should be able to ask:
 * Entitlements stay active unless admin disables for abuse.
 
 ---
-
-If you want, I can convert this into a clean markdown section that drops straight into your main README under:
-
-`## SaaS Module — Group Subscriptions (Technical Reference)`
-
-…and I’ll format it to match your repo tone (same headings and brevity level).
