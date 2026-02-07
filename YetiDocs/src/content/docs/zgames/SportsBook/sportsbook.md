@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Sportsbook User Guide
-
 The Sportsbook is a **pooled betting** game: players place bets on **Side A** or **Side B**, and the total pools determine the displayed **odds multiplier (x)**. Gameplay is typically **DM-driven** (private chat), and events can be shared into groups so users can jump into DM and place bets.
 
 ---
