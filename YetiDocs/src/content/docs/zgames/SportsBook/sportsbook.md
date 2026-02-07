@@ -1,13 +1,13 @@
 ---
 title: Sportsbook User Guide
-description: How to bet on events, understand pooled odds, and track your results.
+description: How to bet on events, understand pooled odds, and how payouts / fees / losses work.
 sidebar:
   order: 1
 ---
 
 # Sportsbook User Guide
 
-The Sportsbook is a **pooled betting** game: players place bets on **Side A** or **Side B**, and the total pools determine the displayed **odds multiplier (x)**. Gameplay is **DM-driven** (private chat), but events can be shared to a group so everyone can jump into DM to bet.
+The Sportsbook is a **pooled betting** game: players place bets on **Side A** or **Side B**, and the total pools determine the displayed **odds multiplier (x)**. Gameplay is typically **DM-driven** (private chat), and events can be shared into groups so users can jump into DM and place bets.
 
 ---
 
@@ -17,9 +17,9 @@ The Sportsbook is a **pooled betting** game: players place bets on **Side A** or
 In a DM with the bot, run:
 - **/sports** (or **/sportsbook**)
 
-You’ll receive a list of active events with buttons.
+You’ll receive a list of active events.
 
-> If you run **/sports** in a group, the bot may redirect you to DM for gameplay. This is intentional — betting actions are handled in DM.
+> If you use /sports in a group, the bot may redirect you to DM for gameplay. This is intentional — bets are handled in DM.
 
 ### 2) Open an event
 Tap an event from the list to open the event card.
@@ -29,14 +29,14 @@ Tap:
 - **Bet A** (Side A), or
 - **Bet B** (Side B)
 
-Choose an amount from the quick buttons (example: 1 / 3 / 5 / 10 / 25 / …) or tap **Custom** to type your own amount.
+Choose a quick amount or tap **Custom** to type an amount.
 
 ### 4) Track your bet
 After betting, the event card updates to show:
 - pools
 - odds multipliers (x)
 - event status
-- your open bet amounts
+- your open bet amount(s)
 
 ---
 
@@ -44,157 +44,264 @@ After betting, the event card updates to show:
 
 An event card typically includes:
 
-- **Event title** (example: “Team A vs Team B”)
-- **Status** (OPEN / LOCKED / AWAITING_RESULT / SETTLED / VOID)
+- **Event title**
+- **Status**: OPEN / LOCKED / AWAITING_RESULT / SETTLED / VOID
 - **Lock time** (or “Locks in …”) — when betting stops
-- **Pools** for Side A and Side B
-- **Odds multipliers (x)** for Side A and Side B
-- **Bet counts** (how many bets on each side)
-- **Your position** (your current total bet on A, on B, and overall)
+- **Pools**: total bet amount on A and on B
+- **Odds multipliers (x)** for A and B
+- **Bet counts** on each side
+- **Your position**: how much you personally have on A, on B, and total
 
 ---
 
-## Pools and Odds Multipliers
+## Pools and Odds
 
-### Pooled betting (the key concept)
-This Sportsbook is **pooled**:
+### Pooled betting (the important concept)
+This sportsbook is **pooled**:
 - All bets on **Side A** form the **A pool**
 - All bets on **Side B** form the **B pool**
-- The bot displays **x multipliers** based on the pool balance
+- The displayed **x multipliers** are derived from pool balance
 
 In general:
-- The **smaller** pool side often displays a **higher** multiplier
-- The **larger** pool side often displays a **lower** multiplier
-
-Why: the payout pressure is higher on the side with fewer total bets if it wins.
+- the **smaller** pool side often shows a **higher** x
+- the **larger** pool side often shows a **lower** x
 
 ### Why odds move
-While an event is **OPEN**, other players can bet anytime. That changes:
+While an event is **OPEN**, other players can bet at any time. That changes:
 - pool sizes
 - pool balance
-- the displayed **x odds**
+- the displayed x multipliers
 
-So you can open an event, see 2.1x, and after other bets it becomes 1.8x. That’s normal.
+So the x you see can change before lock. That’s expected.
 
 ### When odds stop moving
 At the **lock time**:
 - betting stops
-- the pools stop changing
-- the event waits for the result
+- pools stop changing
+- the event waits for result + settlement
 
 ---
 
 ## Event Lifecycle
 
-Events move through these statuses:
-
 ### OPEN
 - Betting is live
 - You can bet A or B
-- Odds/pools can change as people bet
-- The card shows a lock countdown or lock time
+- Odds/pools can change as others bet
 
 ### LOCKED
 - Betting is closed
 - No new bets are accepted
-- Event is in progress / approaching settlement
+- Event progresses toward close / result
 
 ### AWAITING_RESULT
-- Event is finished but the result hasn’t been posted yet
-- No betting is possible
+- Event ended
+- Result not posted yet
 
 ### SETTLED
-- Result has been posted
-- Winners are paid out based on the settled pools/odds rules
-- The event is complete
+- Result posted
+- Winners are paid out
+- Event is complete
 
 ### VOID
-- Event was cancelled or invalidated
+- Event cancelled or invalid
 - Bets are refunded (no winners)
 
 ---
 
-## Placing Bets
+## Betting Rules
 
-### Betting from a group vs DM
-- You can **view** events shared into a group
-- You typically **place bets in DM**, where the bot handles bet inputs and confirmations reliably
+### DM vs group
+- Events can be shared into groups for visibility
+- Betting is typically done in **DM** for reliable confirmations and inputs
 
-If you don’t see buttons working in a group, open DM and run **/sports**.
-
-### Quick amounts vs Custom
-- **Quick amounts**: fastest, one tap
-- **Custom**: type a number manually in DM (example: `25`)
-
-If custom isn’t working, make sure you’re entering a plain number (no symbols).
+### Quick amounts vs custom amount
+- **Quick**: one tap
+- **Custom**: type a plain number (example: `25`) in DM
 
 ### Betting near lock time
 If you try to bet right before lock:
-- the bet may fail if the event locks between your taps
-- refresh the event card and check the status
-
-Best practice: place bets early if you care about a specific multiplier.
+- the event may lock between taps
+- your bet can be rejected
+- refresh the event card and check status
 
 ---
 
-## Payouts and Results
+# Accounting: Fees, Payouts, and Losses
 
-When the event is **SETTLED**:
-- one side is declared the winner
-- winners receive payouts according to the settled pools/odds rules
-- losers lose the wagered amount (unless the event is VOID)
+This section explains exactly how money flows in a pooled event: **who loses what, who wins what, and what the house takes**.
+
+## Definitions
+
+Let:
+
+- **A_pool** = total amount bet on Side A  
+- **B_pool** = total amount bet on Side B  
+- **Total_pool** = A_pool + B_pool  
+
+House fee configuration (current default in your system):
+- **House fee = 3%** (300 basis points, `feeBps = 300`)
+- Fee is computed in basis points: **bps / 10,000**
+- Common caps: usually 0–10% (0–1000 bps) depending on your config
+
+## Step 1 — House fee is taken from the total pool
+
+At settlement time:
+
+- **fee = Total_pool × feeBps / 10,000**
+- **Net_pool = Total_pool − fee**
+
+With a 3% fee:
+- **fee = Total_pool × 0.03**
+- **Net_pool = Total_pool × 0.97**
+
+### Example
+If A_pool = 70 and B_pool = 30:
+- Total_pool = 100
+- fee = 100 × 0.03 = 3
+- Net_pool = 97
+
+## Step 2 — Winners split the net pool proportionally
+
+If **Side A wins**, then only bets on Side A win.
+
+Each winning bettor is paid as a proportional share of the **Net_pool** based on how much they contributed to the winning pool:
+
+- **payout(user) = Net_pool × (userBet / A_pool)**
+
+If **Side B wins**:
+
+- **payout(user) = Net_pool × (userBet / B_pool)**
+
+This model is fair and solvency-safe because:
+- total payouts to winners = Net_pool
+- house gets fee
+- losers get 0
+- Total_pool = Net_pool + fee (balances perfectly)
+
+### Example (Side A wins)
+A_pool = 70, B_pool = 30, Total_pool = 100  
+fee = 3, Net_pool = 97
+
+User X bet 14 on A:
+
+- payout = 97 × (14 / 70)
+- payout = 97 × 0.2
+- payout = 19.4
+
+So:
+- user risked 14
+- user receives 19.4
+- net profit = +5.4
+
+## Step 3 — Losers incur full loss (unless VOID)
+
+If you bet on the losing side:
+- your payout is **0**
+- your loss is your full bet amount
+
+So in pooled betting:
+- **winners profit is funded by losers**, minus the house fee.
+
+## What “Odds Multiplier (x)” actually means
+
+The displayed **x** is a shortcut estimate of expected payout multiple **at that moment** based on pools and fee.
+
+A good mental model:
+
+- **x_if_A_wins ≈ Net_pool / A_pool**
+- **x_if_B_wins ≈ Net_pool / B_pool**
+
+Because if you bet 1 unit on the winning side, your payout is roughly:
+- 1 × (Net_pool / winningPool)
+
+### Example
+A_pool = 70, B_pool = 30, Total_pool = 100  
+Net_pool = 97
+
+- x_if_A_wins ≈ 97 / 70 ≈ 1.3857x
+- x_if_B_wins ≈ 97 / 30 ≈ 3.2333x
+
+This also explains why:
+- smaller pool side tends to have higher x
+- larger pool side tends to have lower x
+
+## How losses occur (dissection)
+
+Losses happen in three places:
+
+### 1) Losing bettors
+They lose **100%** of their bet (payout 0).
+
+### 2) House fee
+Even the winners collectively “lose” the fee in the sense that it reduces Net_pool.
+
+Without fee, winners would split the full Total_pool. With fee, winners split Total_pool minus fee.
+
+### 3) Timing risk (odds movement)
+Even if you don’t “lose” from movement directly, the **x you see** can change before lock because pools change.
+
+So you can:
+- bet at 2.2x shown
+- later it becomes 1.9x because more money piled onto your side
+- final payout is based on **locked pools**, not the moment you opened the card
+
+## Settlement integrity (solvency check)
+
+A correct settlement always satisfies:
+
+- **Total_pool = fee + sum(payouts_to_winners)**
+- Losing side total is redistributed (minus fee) to winners
+
+This makes the book solvent by construction — it never pays out more than it has.
+
+## VOID accounting
 
 If an event is **VOID**:
-- bets are refunded
-- no one wins or loses
+- all bets are returned to users
+- no one wins, no one loses
+- house fee should be **0** on void (refund full principal)
 
 ---
 
 ## My Stats and History
 
-You can view your Sportsbook stats any time from the event list or event card (button name may vary, commonly **My stats**).
-
-Typical stats include:
-- total bets placed
-- wins / losses
+Use the stats screen (usually **My stats**) to see:
+- total bets
+- wins/losses
 - net profit
-- recent bet history (event + side + amount + outcome)
+- recent history
 
-Use stats to:
-- confirm your understanding of payouts
-- track if you’re up or down over time
-- keep a record of your results
+Stats are the fastest way to confirm:
+- your bet was recorded
+- you were settled correctly
+- your profit/loss matches expectations
 
 ---
 
 ## Troubleshooting
 
 ### “Nothing happened when I clicked in a group”
-Sportsbook actions are usually DM-first. Open DM with the bot and run:
+Open DM with the bot and run:
 - **/sports**
 
 ### “Betting closed”
-That event is no longer OPEN. If it’s **LOCKED**, bets won’t be accepted.
+Event is no longer OPEN (LOCKED / AWAITING_RESULT / SETTLED).
 
-### “Odds changed after I looked”
-Odds can move while OPEN because pools change as other players bet. They lock at lock time.
+### “Odds changed”
+Odds change while OPEN as pools change. They lock at lock time.
 
 ### “Custom bet didn’t work”
-Custom bets require you to type a number (example: `25`) in DM. Text like “25 credits” may fail.
+Type a plain number in DM (example: `25`). Avoid extra text.
 
 ### “I can’t find my bet”
-Open the event again and look for **Your position / Your bets**. If the event is settled, check **My stats** or your history.
+Re-open the event to view **Your position**, or check **My stats**.
 
 ---
 
 ## Tips to Play Smarter
 
-- **Place bets earlier** if you want more stable odds.
-- **Refresh before betting** if the event has been open for a while.
-- **Start small** when a new event format is introduced.
-- **Track your results** using stats — don’t rely on memory.
-
----
-
-## Want this guide to match your exact implementation?
-Some previously uploaded files can expire in this chat environment. If you want me to align this doc to your **exact buttons/commands/fields** (and include your real wording/screens), re-upload your latest `sportsbook.zip` and/or the current `sportsbook.ts`.
+- Bet earlier if you want more stable odds
+- Refresh right before placing a bet
+- Start small when testing new event types
+- Track profit/loss via stats — don’t guess
