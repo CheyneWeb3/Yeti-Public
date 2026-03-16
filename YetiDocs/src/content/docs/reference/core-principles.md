@@ -35,6 +35,12 @@ Day-1 policy:
 
 ## 2) Services
 
+<img
+  src="https://raw.githubusercontent.com/CheyneWeb3/Yeti-Public/refs/heads/main/YetiDocs/public/yeticashier-serverA.png"
+  alt="YetiCashier server visualisation"
+  style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+/>
+
 ### 2.1 Core API
 Responsibilities:
 - Wallet auth (`/auth/nonce`, `/auth/verify`) -> JWT (token-mode).
