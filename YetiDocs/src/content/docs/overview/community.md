@@ -47,9 +47,8 @@ Most bots try to be everything. That’s how they die.
 
 YetiCashier is modular by design. Think “app store for community features”:
 
-* blackjack module
+* lottery module
 * dice module
-* whack-a-yeti module
 * tipping module
 * utilities module
 * analytics module
