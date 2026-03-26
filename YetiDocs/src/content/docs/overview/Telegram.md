@@ -3,7 +3,6 @@ title: Tips, Rain, and Monsoon
 description: Learn how to use tip, rain, and monsoon in Telegram.
 ---
 
-# Tips, Rain, and Monsoon
 
 The Telegram bot supports three main ways to send credits to users:
 
