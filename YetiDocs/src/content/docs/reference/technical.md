@@ -7,7 +7,7 @@ sidebar:
 
 # YetiCashier System (BSC MVP) — Technical Reference
 
-This is the technical reference for the **YetiCashier System (BSC MVP)**: a modular **cashier + credits + Telegram + games + SaaS** platform.
+This is the technical reference for the **YetiCashier System (BSC MVP)**: a modular **cashier + credits + Telegram + games + Future SaaS** platform.
 
 ---
 
@@ -196,7 +196,7 @@ Rule: third-party modules must only be able to affect their own buckets (never o
 ### 5.2 Paid access
 After trial ends, a group must become `active` via:
 - bundle purchase (monthly/quarterly/yearly/3-year), or
-- “subb additions”: top-up time at **$5.50/day**.
+- “subb additions”: top-up time at **$$$/day**.
 
 All access is represented by remaining seconds/days.
 
@@ -288,16 +288,11 @@ This requires a separate web app for the one-time signature.
 - `GET /relayer/intents?status=pending&limit=50`
 - `POST /relayer/intents/:id/mark` -> `{ status, txHash?, error? }`
 
-### 8.4 SaaS (Tenant)
-- `GET /tg/tenant/:chatId/status`
-- `POST /tg/tenant/:chatId/sub/credit` (admin/manual) -> `{ seconds }`
-- `POST /tg/tenant/:chatId/sub/topup` (daily rate) -> `{ days }`
-
-### 8.5 TG link (for session withdraw track)
+### 8.4 TG link (for session withdraw track)
 - `POST /tg/link/request` -> `{ tgId }` => `{ code, expiresAt }`
 - `POST /me/tg/link/confirm` (JWT) -> `{ code }`
 
-### 8.6 Session (for session withdraw track)
+### 8.5 Session (for session withdraw track)
 - `POST /me/session/register/typedData` (JWT) -> typed data for owner signature
 - `POST /vault/intents/session/register` (JWT) -> queues register-session intent
 - `POST /me/session/config/typedData` (JWT) -> typed data for token limits
