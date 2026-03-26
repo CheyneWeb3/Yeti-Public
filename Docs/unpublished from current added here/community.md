@@ -58,6 +58,18 @@ The core stays clean. Modules plug in. Communities only enable what they actuall
 
 That means we can ship faster, expand safely, and eventually let third-party developers build modules too — without putting the platform at risk.
 
+### The SaaS layer: subscriptions, but not in the boring way
+
+If communities rely on mods donating time forever, the system burns out. If every feature is free, there’s no budget to improve it. And if monetization is done manually, it breaks the moment a group grows.
+
+So we’re making it simple:
+
+* groups subscribe to unlock modules and higher limits
+* they pay in credits (USDC-backed or native-backed)
+* billing is recurring and transparent
+* if a subscription lapses, features can gracefully degrade instead of hard-breaking the community
+
+The important bit: communities pay for value *as a community*, not as individual users getting nickel-and-dimed. That aligns incentives.
 
 ### The “trust” part is not optional
 
